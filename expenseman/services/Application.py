@@ -1,13 +1,16 @@
 from .PgService import PgService
 from flask import g
+from .UserService import UserService
 from ..config import Config
 
 
 class Application:
     pg_service: PgService
+    user_service: UserService
 
     def __init__(self) -> None:
         self.pg_service = PgService(Config.POSTGRES_CONNECTION_STRING)
+        self.user_service = UserService(self.pg_service.conn)
 
     def close(self):
         self.pg_service.close()
