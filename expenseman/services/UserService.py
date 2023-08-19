@@ -50,7 +50,7 @@ class UserService(ABC):
     @abstractmethod
     def get_by_email(self, email: str) -> User | UserGetError:
         """Get user by email address.
-        
+
         :param email: email address of the user to find
         :returns: User, or a UserGetError
         """
@@ -61,7 +61,6 @@ class UserService(ABC):
         """Create a new user, and return it
 
         :param user: User to create. id field will be ignored
-
         :returns: The newly created user, or a UserCreateError
         """
         pass
@@ -71,7 +70,6 @@ class UserService(ABC):
         """Log into a user
 
         :param user: User to log in as. id field will be ignored
-
         :returns: UUID of the user, or a LoginError
         """
         pass
