@@ -36,4 +36,6 @@ pip install -r requirements.txt
 ## Running
 
 Just run the `dev.py` file to run in development mode
-or run `server.py` to run in release mode
+or run `server.sh` to run in release mode
+
+(Release mode will not work on windows, as we're using gunicorn)
