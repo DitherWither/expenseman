@@ -1,5 +1,7 @@
 # ExpenseMan
 
+Available at https://expenseman.cyclic.cloud/
+
 ## Setup
 
 First, make sure you have python3, pip, and venv installed and set up.
@@ -39,3 +41,5 @@ Just run the `dev.py` file to run in development mode
 or run `server.sh` to run in release mode
 
 (Release mode will not work on windows, as we're using gunicorn)
+
+There is a `server.py` file to make cyclic.sh happy, don't use for dev stuff
