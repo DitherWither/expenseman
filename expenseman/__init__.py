@@ -7,7 +7,7 @@ def create_app(config_class=Config) -> Flask:
     """Creates a new application, and returns the flask app object
 
     Args:
-        config_class: Config class, or something that inherits it, optional 
+        config_class: Config class, or something that inherits it, optional
 
     Returns:
         Flask: the application object
@@ -22,7 +22,7 @@ def create_app(config_class=Config) -> Flask:
 
     return app
 
+
 def main():
-    """The application factory to be used to run the app
-    """
+    """The application factory to be used to run the app"""
     return create_app(Config)
