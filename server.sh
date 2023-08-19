@@ -13,7 +13,7 @@ if [ -z "$PORT" ]; then
 fi
 
 python3 -m gunicorn "expenseman:main()" \
-    --bind "[::1]:$PORT" \
+    --bind "0.0.0.0:$PORT" \
     $PORT_ENV_ARGS \
     --env POSTGRES_CONNECTION_STRING="$POSTGRES_CONNECTION_STRING"
 
