@@ -12,7 +12,7 @@ if [ -z "$PORT" ]; then
     PORT_ENV_ARGS="--env PORT=$PORT"
 fi
 
-gunicorn "expenseman:main()" \
+python3 -m gunicorn "expenseman:main()" \
     --bind "[::1]:$PORT" \
     $PORT_ENV_ARGS \
     --env POSTGRES_CONNECTION_STRING="$POSTGRES_CONNECTION_STRING"
