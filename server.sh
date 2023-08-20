@@ -8,6 +8,11 @@ if [ -z "$POSTGRES_CONNECTION_STRING" ]; then
     exit 1
 fi
 
+if [ -z "$SECRET_KEY" ]; then
+    echo "Secret key is not set"
+    
+    exit 1
+fi
 if [ -z "$PORT" ]; then
     PORT_ENV_ARGS="--env PORT=$PORT"
 fi
@@ -15,6 +20,7 @@ fi
 python3 -m gunicorn "expenseman:main()" \
     --bind "0.0.0.0:$PORT" \
     $PORT_ENV_ARGS \
-    --env POSTGRES_CONNECTION_STRING="$POSTGRES_CONNECTION_STRING"
+    --env POSTGRES_CONNECTION_STRING="$POSTGRES_CONNECTION_STRING" \
+    --env SECRET_KEY=$SECRET_KEY
 
 exit 0
