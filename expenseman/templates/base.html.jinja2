@@ -14,6 +14,13 @@
 <body>
     <header>
         <h1>ExpenseMan</h1>
+        <nav>
+            {% if session['user_id'] %}
+                <a href="{{ url_for('app.auth.logout') }}">Logout</a>
+            {% else %}
+                <a href="{{ url_for('app.auth.login_get')}}">Login</a>
+            {% endif %}
+        </nav>
     </header>
     <main>
         {% for message in get_flashed_messages() %}
