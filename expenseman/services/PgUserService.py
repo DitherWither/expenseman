@@ -1,6 +1,6 @@
 from ..models import User
 from .UserService import LoginError, UserCreateError, UserGetError
-from . import UserService
+from .UserService import UserService
 import psycopg
 from psycopg.rows import class_row
 from werkzeug.security import generate_password_hash, check_password_hash

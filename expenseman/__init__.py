@@ -15,8 +15,8 @@ def create_app(config_class=Config) -> Flask:
 
     app = Flask(__name__)
     app.config.from_object(config_class)
-
-    # TODO setup db connection
+    app.secret_key = Config.SECRET_KEY
+    
     # Add blueprints
     app.register_blueprint(expenseman.routes.blueprint)
 
