@@ -1,5 +1,7 @@
 from .PgUserService import PgUserService
 from .PgService import PgService
+from .TagService import TagService
+from .PgTagService import PgTagService
 from flask import g
 from .UserService import UserService
 from ..config import Config
@@ -8,10 +10,12 @@ from ..config import Config
 class Application:
     pg_service: PgService
     user_service: UserService
+    tag_service: TagService
 
     def __init__(self) -> None:
         self.pg_service = PgService(Config.POSTGRES_CONNECTION_STRING)
         self.user_service = PgUserService(self.pg_service.conn)
+        self.tag_service = PgTagService(self.pg_service.conn)
 
     def close(self):
         self.pg_service.close()
